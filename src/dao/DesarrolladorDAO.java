@@ -84,7 +84,7 @@ public class DesarrolladorDAO {
         EntityManager em = emf.createEntityManager();
         Desarrollador desarrollador = em.find(Desarrollador.class, id);
         List<Proyecto> proyectos = desarrollador.getProyectos();
-        proyectos.toString(); // fuerza carga lazy
+        proyectos.toString();
         em.close();
         return proyectos;
     }
