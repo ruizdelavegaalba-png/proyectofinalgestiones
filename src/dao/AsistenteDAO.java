@@ -13,7 +13,7 @@ public class AsistenteDAO {
     private String user = "root";
     private String password = "1234";
 
-    // a. Inserción de un asistente
+   
     public void insertarAsistente(Asistente a) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "INSERT INTO asistentes (nombre, email, edad) VALUES (?, ?, ?)";
@@ -27,7 +27,7 @@ public class AsistenteDAO {
         }
     }
 
-    // b. Actualización de cualquier campo de un asistente (salvo ID), según su ID
+    
     public void actualizarAsistente(int id, Asistente a) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "UPDATE asistentes SET nombre = ?, email = ?, edad = ? WHERE id = ?";
@@ -42,7 +42,7 @@ public class AsistenteDAO {
         }
     }
 
-    // c. Borrado de un asistente, según su ID
+   
     public void borrarAsistente(int id) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "DELETE FROM asistentes WHERE id = ?";
@@ -54,7 +54,7 @@ public class AsistenteDAO {
         }
     }
 
-    // d. Inscribir a un Asistente en un Evento, según sus IDs y una fecha dada
+    
     public void inscribirAsistente(int asistenteId, int eventoId, String fechaInscripcion) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "INSERT INTO inscripciones (asistente_id, evento_id, fecha_inscripcion) VALUES (?, ?, ?)";
@@ -68,7 +68,7 @@ public class AsistenteDAO {
         }
     }
 
-    // e. Eliminar la inscripción de un Asistente en un Evento, según sus IDs
+    
     public void eliminarInscripcion(int asistenteId, int eventoId) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "DELETE FROM inscripciones WHERE asistente_id = ? AND evento_id = ?";
@@ -81,7 +81,7 @@ public class AsistenteDAO {
         }
     }
 
-    // f. Obtener todos los Asistente con su gasto total
+   
     public Map<Asistente, Double> obtenerAsistentesConGastoTotal() {
         Map<Asistente, Double> resultados = new HashMap<>();
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
@@ -105,7 +105,7 @@ public class AsistenteDAO {
         return resultados;
     }
 
-    // g. Obtener la edad media de los Asistente
+   
     public double obtenerEdadMedia() {
         double media = 0;
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
@@ -121,7 +121,7 @@ public class AsistenteDAO {
         return media;
     }
 
-    // h. Obtener todos los Asistente que no se han inscrito a ningún evento
+   
     public List<Asistente> obtenerAsistentesSinInscripcion() {
         List<Asistente> asistentes = new ArrayList<>();
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
