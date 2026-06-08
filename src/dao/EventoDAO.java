@@ -14,7 +14,6 @@ public class EventoDAO {
     private String user = "root";
     private String password = "1234";
 
-    // a. Inserción de un evento
     public void insertarEvento(Evento e) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "INSERT INTO eventos (nombre, ubicacion, fecha, precio) VALUES (?, ?, ?, ?)";
@@ -29,7 +28,7 @@ public class EventoDAO {
         }
     }
 
-    // b. Actualización de cualquier campo de un evento (salvo ID), según su ID
+
     public void actualizarEvento(int id, Evento e) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "UPDATE eventos SET nombre = ?, ubicacion = ?, fecha = ?, precio = ? WHERE id = ?";
@@ -45,7 +44,7 @@ public class EventoDAO {
         }
     }
 
-    // c. Borrado de un evento, según su ID
+ 
     public void borrarEvento(int id) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "DELETE FROM eventos WHERE id = ?";
@@ -57,7 +56,7 @@ public class EventoDAO {
         }
     }
 
-    // d. Obtener todos los Evento con su número total de asistentes
+    
     public Map<Evento, Integer> obtenerEventosConTotalAsistentes() {
         Map<Evento, Integer> resultados = new HashMap<>();
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
@@ -81,7 +80,7 @@ public class EventoDAO {
         return resultados;
     }
 
-    // e. Obtener todos los Asistente de un evento, dado su ID
+    
     public List<Asistente> obtenerAsistentesDeEvento(int eventoId) {
         List<Asistente> asistentes = new ArrayList<>();
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
@@ -104,7 +103,7 @@ public class EventoDAO {
         return asistentes;
     }
 
-    // f. Obtener todos los Evento con más de 2 asistentes
+  
     public List<Evento> obtenerEventosMas2Asistentes() {
         List<Evento> eventos = new ArrayList<>();
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
@@ -128,7 +127,7 @@ public class EventoDAO {
         return eventos;
     }
 
-    // g. Obtener los 3 Evento con más ingresos (precio × asistentes)
+    
     public List<Evento> obtener3EventosMasIngresos() {
         List<Evento> eventos = new ArrayList<>();
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
@@ -152,7 +151,7 @@ public class EventoDAO {
         return eventos;
     }
 
-    // h. Obtener el Evento más caro de una ubicación dada
+   
     public Evento obtenerEventoMasCaroDeUbicacion(String ubicacion) {
         Evento e = null;
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
