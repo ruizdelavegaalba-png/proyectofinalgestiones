@@ -18,7 +18,7 @@ public class ProyectoDAO {
         this.emf = emf;
     }
 
-    // 6a. Inserción de un proyecto
+
     public void insertarProyecto(Proyecto proyecto) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -27,7 +27,6 @@ public class ProyectoDAO {
         em.close();
     }
 
-    // 6b. Actualización de cualquier campo (salvo ID), según su ID
     public void actualizarProyecto(int id, String nombre, double presupuesto, String lenguajePrincipal) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -41,7 +40,6 @@ public class ProyectoDAO {
         em.close();
     }
 
-    // 6c. Borrado de un proyecto, según su ID
     public void borrarProyecto(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -53,7 +51,7 @@ public class ProyectoDAO {
         em.close();
     }
 
-    // 6d. Obtener el número de desarrolladores de cada proyecto
+
     public Map<String, Long> obtenerNumDesarrolladoresPorProyecto() {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Object[]> query = em.createQuery(
@@ -70,7 +68,7 @@ public class ProyectoDAO {
         return res;
     }
 
-    // 6e. Obtener todos los Desarrollador de un proyecto, dado su ID
+
     public List<Desarrollador> obtenerDesarrolladoresDeProyecto(int id) {
         EntityManager em = emf.createEntityManager();
         Proyecto proyecto = em.find(Proyecto.class, id);
@@ -80,7 +78,6 @@ public class ProyectoDAO {
         return desarrolladores;
     }
 
-    // 6f. Obtener los Proyecto que tengan más de 5 desarrolladores
     public List<Proyecto> obtenerProyectosConMasDe5Desarrolladores() {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Proyecto> query = em.createQuery(
@@ -91,7 +88,7 @@ public class ProyectoDAO {
         return proyectos;
     }
 
-    // 6g. Obtener los 3 Proyecto con el presupuesto más alto
+ 
     public List<Proyecto> obtenerTop3Presupuesto() {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Proyecto> query = em.createQuery(
@@ -103,7 +100,7 @@ public class ProyectoDAO {
         return proyectos;
     }
 
-    // 6h. Obtener el Proyecto con un lenguajePrincipal dado, con el presupuesto más bajo
+   
     public Proyecto obtenerProyectoMasBaratoPorLenguaje(String lenguaje) {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Proyecto> query = em.createQuery(
