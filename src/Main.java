@@ -18,14 +18,12 @@ public class Main {
         //EventoDAO eventoDAO = new EventoDAO();
         //AsistenteDAO asistenteDAO = new AsistenteDAO();
 
-        // Insertar, actualizar y borrar evento
         //Evento e = new Evento("Feria Tech", "Sevilla", "2026-09-10", 45.0);
         //eventoDAO.insertarEvento(e);
         //e.setPrecio(55.0);
         //eventoDAO.actualizarEvento(11, e);
         //eventoDAO.borrarEvento(11);
 
-        // Insertar, actualizar y borrar asistente
         //Asistente a = new Asistente("Pedro Molina", "pedro@example.com", 29);
         //asistenteDAO.insertarAsistente(a);
         //a.setEmail("pedro.nuevo@example.com");
@@ -34,7 +32,6 @@ public class Main {
         //asistenteDAO.inscribirAsistente(1, 2, "2026-05-01");
         //asistenteDAO.eliminarInscripcion(1, 2);
 
-        // --- Consultas EventoDAO ---
         //System.out.println("Eventos con total de asistentes:" + eventoDAO.obtenerEventosConTotalAsistentes());
 
         //System.out.println("\nAsistentes del evento con ID 1:" + eventoDAO.obtenerAsistentesDeEvento(1));
@@ -45,7 +42,6 @@ public class Main {
 
         //System.out.println("\nEvento más caro en Madrid:" + eventoDAO.obtenerEventoMasCaroDeUbicacion("Madrid"));
 
-        // --- Consultas AsistenteDAO ---
         //System.out.println("\nAsistentes con gasto total:" + asistenteDAO.obtenerAsistentesConGastoTotal());
 
         //System.out.println("\nEdad media de los asistentes:" + asistenteDAO.obtenerEdadMedia());
@@ -108,31 +104,24 @@ public class Main {
         desarrolladorDAO.asignarDesarrollador(13, 9);
         desarrolladorDAO.asignarDesarrollador(20, 9);
 
-
-        // Insertar, actualizar y borrar un proyecto
         Proyecto p = new Proyecto("Proyecto final gestiones", 1000.0, "Java");
         proyectoDAO.insertarProyecto(p);
         proyectoDAO.actualizarProyecto(p.getId(), "Proyecto final programación", 2000.0, "Java");
         proyectoDAO.borrarProyecto(p.getId());
-
-        // Insertar, actualizar y borrar un desarrollador
         Desarrollador d = new Desarrollador("Alba ", 1, 10.0);
         desarrolladorDAO.insertarDesarrollador(d);
         desarrolladorDAO.actualizarDesarrollador(d.getId(), "Alba Ruiz de la Vega ", 3, 20.0);
         desarrolladorDAO.borrarDesarrollador(d.getId());
-
-        // Asignar y eliminar una asignación
         desarrolladorDAO.asignarDesarrollador(11, 2);
         desarrolladorDAO.eliminarAsignacion(11, 2);
 
-        // --- Consultas ProyectoDAO ---
         System.out.println("\nNº desarrolladores por proyecto: " + proyectoDAO.obtenerNumDesarrolladoresPorProyecto());
         System.out.println("\nDesarrolladores del proyecto 1: " + proyectoDAO.obtenerDesarrolladoresDeProyecto(1));
         System.out.println("\nProyectos con más de 5 desarrolladores: " + proyectoDAO.obtenerProyectosConMasDe5Desarrolladores());
         System.out.println("\nTop 3 proyectos por presupuesto: " + proyectoDAO.obtenerTop3Presupuesto());
         System.out.println("\nProyecto Python con menor presupuesto: " + proyectoDAO.obtenerProyectoMasBaratoPorLenguaje("Python"));
 
-        // --- Consultas DesarrolladorDAO ---
+    
         System.out.println("\nProyectos del desarrollador 11: " + desarrolladorDAO.obtenerProyectosDeDesarrollador(11));
         System.out.println("\nMedia de años de experiencia: " + desarrolladorDAO.obtenerMediaExperiencia());
         System.out.println("\nDesarrolladores sin proyecto: " + desarrolladorDAO.obtenerDesarrolladoresSinProyecto());
